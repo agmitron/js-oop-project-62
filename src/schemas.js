@@ -49,3 +49,12 @@ export class ArraySchema extends Schema {
   }
 }
 
+export class ObjectSchema extends Schema {
+  shape(shapeSchema) {
+    const validateShape = shape => Object.entries(shapeSchema)
+      .reduce((result, [key, schema]) => result && schema.isValid(shape[key]), true)
+
+    this.rules = [...this.rules, validateShape];
+    return this;
+  }
+}

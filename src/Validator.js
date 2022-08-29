@@ -12,6 +12,10 @@ class Validator {
   array() {
     return new schemas.ArraySchema();
   }
+
+  object() {
+    return new schemas.ObjectSchema();
+  }
 }
 
 export default Validator;
