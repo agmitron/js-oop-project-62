@@ -40,3 +40,23 @@ test('v.string().isValid(), .required()', () => {
   expect(schema.isValid('what does the fox say')).toBe(false);
   // уже false, так как добавлена ещё одна проверка contains('whatthe')
 })
+
+test('.number().required(), .positive(), .range()', () => {
+  const v = new Validator();
+
+  const schema = v.number();
+
+  expect(schema.isValid(null)).toBe(true);
+
+  schema.required();
+
+  expect(schema.isValid(null)).toBe(false);
+  expect(schema.isValid(7)).toBe(true);
+
+  expect(schema.positive().isValid(10)).toBe(true);
+
+  schema.range(-5, 5);
+
+  expect(schema.isValid(-3)).toBe(false);
+  expect(schema.isValid(5)).toBe(true);
+})

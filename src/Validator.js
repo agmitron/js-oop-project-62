@@ -4,6 +4,10 @@ class Validator {
   string() {
     return new schemas.String();
   }
+
+  number() {
+    return new schemas.Number();
+  }
 }
 
 export default Validator;
