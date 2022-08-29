@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/nodejs-package",
+  "name": "@hexlet/code",
   "version": "0.0.3",
   "description": "Node.js boilerplate package",
   "bin": {
