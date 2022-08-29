@@ -1,10 +1,22 @@
 class Schema {
-  constructor() {
+  constructor(customRules) {
     this.rules = [];
+    this.customRules = customRules;
   }
 
   isValid(value) {
     return this.rules.every(fn => fn(value));
+  }
+
+  test(rule, param) {
+    const customRule = this.customRules[rule];
+
+    if (customRule) {
+      const validate = (value) => customRule(value, param);
+      this.rules = [...this.rules, validate];
+    }
+
+    return this;
   }
 }
 
