@@ -8,7 +8,7 @@ class Schema {
   }
 }
 
-export class String extends Schema {
+export class StringSchema extends Schema {
   contains(substring) {
     this.rules = [...this.rules, string => string.includes(substring)];
     return this;
@@ -20,7 +20,7 @@ export class String extends Schema {
   }
 }
 
-export class Number extends Schema {
+export class NumberSchema extends Schema {
   required() {
     this.rules = [...this.rules, num => typeof num === 'number'];
     return this;
@@ -36,3 +36,16 @@ export class Number extends Schema {
     return this;
   }
 }
+
+export class ArraySchema extends Schema {
+  required() {
+    this.rules = [...this.rules, Array.isArray];
+    return this;
+  }
+
+  sizeof(length) {
+    this.rules = [...this.rules, array => array?.length === length];
+    return this;
+  }
+}
+

@@ -2,11 +2,15 @@ import * as schemas from './schemas.js';
 
 class Validator {
   string() {
-    return new schemas.String();
+    return new schemas.StringSchema();
   }
 
   number() {
-    return new schemas.Number();
+    return new schemas.NumberSchema();
+  }
+
+  array() {
+    return new schemas.ArraySchema();
   }
 }
 

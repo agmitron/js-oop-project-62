@@ -60,3 +60,22 @@ test('.number().required(), .positive(), .range()', () => {
   expect(schema.isValid(-3)).toBe(false);
   expect(schema.isValid(5)).toBe(true);
 })
+
+test('v.array(), .required(), .sizeof()', () => {
+  const v = new Validator();
+
+  const schema = v.array();
+
+  expect(schema.isValid(null)).toBe(true); // true
+
+  schema.required();
+
+  expect(schema.isValid(null)).toBe(false); // false
+  expect(schema.isValid([])).toBe(true); // true
+  expect(schema.isValid(['hexlet'])).toBe(true); // true
+
+  schema.sizeof(2);
+
+  expect(schema.isValid(['hexlet'])).toBe(false); // false
+  expect(schema.isValid(['hexlet', 'code-basics'])).toBe(true); // true
+})
