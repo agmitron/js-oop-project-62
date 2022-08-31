@@ -2,9 +2,6 @@
   "name": "@hexlet/code",
   "version": "0.0.3",
   "description": "Node.js boilerplate package",
-  "bin": {
-    "nodejs-package": "bin/nodejs-package.js"
-  },
   "simple-git-hooks": {
     "pre-push": "npm run lint"
   },
@@ -19,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/hexlet-boilerplates/nodejs-package.git"
   },
-  "author": "Kirill Mokevnin",
+  "author": "Aleksei Gmitron",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hexlet-boilerplates/nodejs-package/issues"
